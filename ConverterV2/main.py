@@ -21,9 +21,9 @@ tbl = [
     ["ALL", 	"4.034276",	 "2022-03-27"]
 ]
 
-print(mgr.print_reports(hdrs, tbl))
+print(mgr.print_reports(hdrs, mgr.get_table_to_list_of_lists("rates")))
 
 with open("test_report.txt" , "w") as f:
-    print(mgr.print_reports(hdrs, tbl), file = f)
+    print(mgr.print_reports(hdrs, mgr.get_table_to_list_of_lists("rates")), file = f)
     pass
 

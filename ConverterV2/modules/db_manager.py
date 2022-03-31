@@ -194,6 +194,22 @@ def print_reports(table_headers: list, table_rows: list):
 
     return table_to_print
 
+# get table to list of lists
+def get_table_to_list_of_lists(table_name: str):
+    with sqlite3.connect(CONST.PATH_TO_DB) as c:
+        cursor = c.cursor()
+        cursor.execute(F"SELECT * FROM {table_name}")
+        table_to_list_of_lists = cursor.fetchall()
+        res = []
+        for next_row in table_to_list_of_lists:
+            tmp = []
+            for next_item in next_row:
+                tmp.append(str(next_item))
+                pass
+            res.append(tmp)
+        pass
+    return res
+
 
 # get currency code from console ( by country code, country name, tel code, currency code)
 
